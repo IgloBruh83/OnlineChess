@@ -36,9 +36,10 @@ def StopClient(route):
         raise ConnectionRefusedError
 
 
-def RecvMainloop(route):
-    while True:
-        command = route.recv(1024).decode('utf-8').split(".")
-        if command[0] == "--Disconnected":
-            StopClient(route)
-            break
+def Recv(route):
+    command = route.recv(1024).decode('utf-8').split(".")
+    if command[0] == "--Disconnected":
+        StopClient(route)
+        raise ConnectionRefusedError
+    else:
+        return command
