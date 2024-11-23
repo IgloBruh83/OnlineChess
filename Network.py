@@ -34,12 +34,3 @@ def StopClient(route):
             route.close()
     except:
         raise ConnectionRefusedError
-
-
-def Recv(route):
-    command = route.recv(1024).decode('utf-8').split(".")
-    if command[0] == "--Disconnected":
-        StopClient(route)
-        raise ConnectionRefusedError
-    else:
-        return command
