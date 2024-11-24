@@ -17,7 +17,7 @@ def StartClient(server_ip, port) -> object:
     try:
         clientSocket.connect( (server_ip, port) )
         # Request a confirmation from server
-        if Request("-Check", route=clientSocket) == "--Connected":
+        if Request("-Check", route=clientSocket)[0] == "--Connected":
             print("Successfully connected to server")
         return clientSocket
     except:
@@ -29,7 +29,7 @@ def StartClient(server_ip, port) -> object:
 
 def StopClient(route):
     try:
-        if Request("-Disconnect", route=route) == "--Disconnected":
+        if Request("-Disconnect", route=route)[0] == "--Disconnected":
             print("Socket closed successfully - [-Disconnect]")
             route.close()
     except:
