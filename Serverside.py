@@ -61,3 +61,5 @@ class Game:
         _newField[x2][y2] = pieceToMove
         return _newField
 
+while True:
+    AwaitForPlayers()
