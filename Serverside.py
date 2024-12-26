@@ -1,8 +1,6 @@
 import socket
 import threading
 
-from Main import Piece, ApplyMove
-
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind(("0.0.0.0", 13579))
 server_socket.listen(10)
