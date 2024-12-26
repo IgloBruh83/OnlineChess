@@ -88,7 +88,7 @@ def Listen():
                 gameStarted = True
         else:
             temp = command.split(".")
-            ApplyMove(field, temp[0], temp[1], temp[2], temp[3])
+            ApplyMove(field, int(temp[0]), int(temp[1]), int(temp[2]), int(temp[3]))
 
 
 input_thread = threading.Thread(target=Listen)
