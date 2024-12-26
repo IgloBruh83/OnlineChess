@@ -44,7 +44,7 @@ class Game:
         while True:
             move = self.player1[0].recv(1024).decode() if self.turn == 1 else self.player2[0].recv(1024).decode()
             temp = move.split(".")
-            self.field = ApplyMove(self.field, temp[0], temp[1], temp[2], temp[3])
+            self.field = ApplyMove(self.field, int(temp[0]), int(temp[1]), int(temp[2]), int(temp[3]))
 
             player1[0].send(f"{temp[0]}.{temp[1]}.{temp[2]}.{temp[3]}".encode())
             player2[0].send(f"{temp[0]}.{temp[1]}.{temp[2]}.{temp[3]}".encode())
