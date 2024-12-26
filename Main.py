@@ -69,7 +69,7 @@ def ApplyMove(_field, x1, y1, x2, y2):
 def SendMove(x1, y1, x2, y2):
     global socket
     global field
-    socket.send(f"{x1}.{y1}.{x2}.{y2}")
+    socket.send(f"{x1}.{y1}.{x2}.{y2}".encode())
     ApplyMove(field, x1, y1, x2, y2)
 
 

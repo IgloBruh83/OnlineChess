@@ -46,8 +46,8 @@ class Game:
             temp = move.split(".")
             self.field = ApplyMove(self.field, temp[0], temp[1], temp[2], temp[3])
 
-            player1[0].send(f"{temp[0]}.{temp[1]}.{temp[2]}.{temp[3]}")
-            player2[0].send(f"{temp[0]}.{temp[1]}.{temp[2]}.{temp[3]}")
+            player1[0].send(f"{temp[0]}.{temp[1]}.{temp[2]}.{temp[3]}".encode())
+            player2[0].send(f"{temp[0]}.{temp[1]}.{temp[2]}.{temp[3]}".encode())
 
             if self.turn == 1:
                 self.turn = 2
