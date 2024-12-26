@@ -39,8 +39,8 @@ class Game:
                        ['rook_w', 'pawn_w', None, None, None, None, 'pawn_b', 'rook_b'] ]
 
 
-        player1[0].send("START")
-        player2[0].send("START")
+        player1[0].send("START".encode())
+        player2[0].send("START".encode())
         while True:
             move = self.player1[0].recv(1024).decode() if self.turn == 1 else self.player2[0].recv(1024).decode()
             temp = move.split(".")
