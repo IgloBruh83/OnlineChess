@@ -7,7 +7,7 @@ server_socket.listen(10)
 print(f"Server started. Waiting for players")
 
 queue = []
-currentGames = []
+currentThreads = []
 
 def AwaitForPlayers():
     global queue; global currentGames
@@ -17,7 +17,12 @@ def AwaitForPlayers():
         if callback != "" and callback is not None:
             queue.append( [conn, addr, callback] )
         if len(queue) >= 2:
-            currentGames.append(Game(queue[0], queue[1]))
+            currentThreads.append(threading.Thread(target=InitGame, args=(queue[0], queue[1])))
+            currentThreads[len(currentThreads)-1].start()
+            
+
+def InitGame(p1, p2):
+    game = Game(p1, p2)
 
 class Game:
     def __init__(self, player1, player2):
