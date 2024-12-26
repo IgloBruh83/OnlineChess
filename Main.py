@@ -24,7 +24,7 @@ field = [ ['rook_w', 'pawn_w', None, None, None, None, 'pawn_b', 'rook_b'],
           ['bishop_w', 'pawn_w', None, None, None, None, 'pawn_b', 'bishop_b'],
           ['knight_w', 'pawn_w', None, None, None, None, 'pawn_b', 'knight_b'],
           ['rook_w', 'pawn_w', None, None, None, None, 'pawn_b', 'rook_b'] ]
-gameStarted = True
+gameStarted = False
 visualPieces = []
 selected = None ; selector = None
 
